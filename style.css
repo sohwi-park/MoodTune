@@ -1,0 +1,286 @@
+:root {
+  --text: #4c3d58;
+  --muted: #786984;
+  --accent: #ff89a7;
+  --accent-2: #8ec5ff;
+  --accent-3: #cdb8ff;
+  --card: rgba(255, 255, 255, 0.65);
+  --border: rgba(255, 255, 255, 0.75);
+  --shadow: 0 20px 45px rgba(117, 93, 136, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nanum Square Round', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff5fb 0%, #f2f8ff 100%);
+  overflow-x: hidden;
+}
+
+.background-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.32;
+  animation: float 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.orb-one {
+  width: 260px;
+  height: 260px;
+  background: var(--accent);
+  top: -70px;
+  right: -80px;
+}
+
+.orb-two {
+  width: 320px;
+  height: 320px;
+  background: var(--accent-2);
+  bottom: -100px;
+  left: -100px;
+  animation-delay: 2s;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 28px 18px 50px;
+}
+
+.glass-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 28px;
+}
+
+.hero-card {
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 8px;
+}
+
+.hero-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.card {
+  padding: 24px;
+  animation: fadeUp 0.9s ease;
+}
+
+#start-screen,
+#result-screen {
+  text-align: center;
+}
+
+#start-screen h2,
+#result-screen h2 {
+  margin-bottom: 12px;
+}
+
+#start-screen p,
+#result-screen p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  margin-top: 14px;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 24px rgba(255, 137, 167, 0.2);
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.progress-area {
+  margin-bottom: 20px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+#question-text {
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+#options {
+  display: grid;
+  gap: 12px;
+}
+
+.option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.option-btn:hover,
+.option-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.result-box {
+  text-align: left;
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.result-box h3,
+.result-box h4 {
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+
+.result-box p,
+.result-box li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.result-box ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.result-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  margin-top: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(14px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 16px 12px 36px;
+  }
+
+  .hero-card,
+  .card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .option-btn {
+    padding: 12px 14px;
+  }
+
+  .result-actions {
+    flex-direction: column;
+  }
+
+  .result-actions button,
+  .result-actions a {
+    width: 100%;
+    text-align: center;
+  }
+}
